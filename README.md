@@ -2,7 +2,14 @@
 
 ## A replication of Tailwind UI components in React
 
-====
+**Table of content:**
+- [Application Shells](#application-shells)
+  - [Stacked Layouts](/docs/layouts/stacked/)
+  - [Sidebar Layouts](/docs/layouts/sidebar/)
+  - [Multi-Column Layouts](/docs/layouts/multi-column/)
+- [Forms](#form)
+- [Lists](#lists)
+- [Navigations](#navigations)
 
 ## TODOS
 - [ ] [WIP] Application Shells
