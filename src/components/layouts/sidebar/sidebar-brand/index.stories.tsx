@@ -1,14 +1,14 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import BrandSidebar from './index';
+import SidebarBrand from './index';
 
 //👇 This default export determines where your story goes in the story list
-const meta: Meta<typeof BrandSidebar> = {
+const meta: Meta<typeof SidebarBrand> = {
   title: 'Layout / Sidebar / Brand sidebar with header',
-  component: BrandSidebar,
+  component: SidebarBrand,
 };
 
 export default meta;
-type Story = StoryObj<typeof BrandSidebar>;
+type Story = StoryObj<typeof SidebarBrand>;
 
-export const BrandSidebarStory: Story = {};
+export const SidebarBrandStory: Story = {};

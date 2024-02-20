@@ -1,10 +1,10 @@
-import Stacked2RowNav from '@/components/layouts/stacked-2-row-nav';
-import StackedBrandedNav from '@/components/layouts/stacked-branded-nav';
-import StackedBrandedOverlap from '@/components/layouts/stacked-branded-overlap';
-import StackedDarkNav from '@/components/layouts/stacked-dark-nav';
-import StackedDarkOverlap from '@/components/layouts/stacked-dark-overlap';
-import StackedLightNav from '@/components/layouts/stacked-light-nav';
-import StackedLightNav2 from '@/components/layouts/stacked-light-nav-2';
+import Stacked2RowNav from '@/components/layouts/stacked/stacked-2-row-nav';
+import StackedBrandedNav from '@/components/layouts/stacked/stacked-branded-nav';
+import StackedBrandedOverlap from '@/components/layouts/stacked/stacked-branded-overlap';
+import StackedDarkNav from '@/components/layouts/stacked/stacked-dark-nav';
+import StackedDarkOverlap from '@/components/layouts/stacked/stacked-dark-overlap';
+import StackedLightNav from '@/components/layouts/stacked/stacked-light-nav';
+import StackedLightNav2 from '@/components/layouts/stacked/stacked-light-nav-2';
 
 export default function Page() {
   return (

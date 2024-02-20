@@ -29,31 +29,31 @@ const navigation = [
     name: 'Dashboard',
     href: '#',
     current: true,
-    icon: <HomeIcon className="w-6 shrink-0" />,
+    icon: <HomeIcon className="w-6 shrink-0 text-gray-400" />,
   },
   {
     name: 'Team',
     href: '#',
     current: false,
-    icon: <UsersIcon className="w-6 shrink-0" />,
+    icon: <UsersIcon className="w-6 shrink-0 text-gray-400" />,
   },
   {
     name: 'Projects',
     href: '#',
     current: false,
-    icon: <FolderIcon className="w-6 shrink-0" />,
+    icon: <FolderIcon className="w-6 shrink-0 text-gray-400" />,
   },
   {
     name: 'Calendar',
     href: '#',
     current: false,
-    icon: <CalendarIcon className="w-6 shrink-0" />,
+    icon: <CalendarIcon className="w-6 shrink-0 text-gray-400" />,
   },
   {
     name: 'Reports',
     href: '#',
     current: false,
-    icon: <ChartPieIcon className="w-6 shrink-0" />,
+    icon: <ChartPieIcon className="w-6 shrink-0 text-gray-400" />,
   },
 ];
 
@@ -63,7 +63,7 @@ const userNavigation = [
   { name: 'Sign out', href: '#' },
 ];
 
-export default function BrandSidebar() {
+export default function SidebarLight() {
   const [isOpen, setIsOpen] = useState(false);
 
   function closeModal() {
@@ -75,15 +75,15 @@ export default function BrandSidebar() {
   }
 
   return (
-    <div className="bg-gray-100 ring-1 ring-slate-900/10">
+    <div className="bg-white ring-1 ring-slate-900/10">
       <div className="">
         {/* Sidebar */}
-        <div className="hidden lg:flex lg:flex-col lg:w-72 lg:z-50 lg:fixed lg:top-0 lg:bottom-0">
-          <div className="flex flex-col grow gap-y-5 overflow-y-auto pb-4 px-6 bg-indigo-600">
+        <div className="hidden lg:flex lg:flex-col lg:w-72 lg:z-50 lg:fixed lg:top-0 lg:bottom-0 border-r border-gray-200">
+          <div className="flex flex-col grow gap-y-5 overflow-y-auto pb-4 px-6 bg-white">
             <header className="flex items-center shrink-0 h-16">
               <img
                 className="h-8 w-auto"
-                src="https://tailwindui.com/img/logos/mark.svg?color=white"
+                src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
                 alt="Your Company"
               />
             </header>
@@ -97,8 +97,8 @@ export default function BrandSidebar() {
                           href={item.href}
                           className={clsx(
                             item.current
-                              ? 'bg-indigo-700 text-white'
-                              : 'text-white/80 hover:bg-indigo-700 hover:text-white',
+                              ? 'bg-gray-100 text-indigo-600'
+                              : 'hover:bg-gray-100',
                             'flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold'
                           )}
                           aria-current={item.current ? 'page' : undefined}
@@ -111,16 +111,16 @@ export default function BrandSidebar() {
                   </ul>
                 </li>
                 <li>
-                  <div className="text-white/80 leading-6 text-sm font-semibold">
+                  <div className="text-gray-400/80 leading-6 text-xs font-semibold">
                     Your teams
                   </div>
                   <ul role="list" className="mt-2 -mx-2">
                     <li>
                       <a
                         href="#"
-                        className="rounded-md leading-6 text-sm font-medium p-2 text-white/80 flex gap-x-3 hover:bg-indigo-700 hover:text-white"
+                        className="rounded-md leading-6 text-sm font-medium p-2 text-gray-400/80 flex gap-x-3 hover:bg-gray-100 hover:text-gray-400"
                       >
-                        <span className="rounded-lg text-xs font-medium ring-1 ring-white/80 justify-center items-center shrink-0 h-6 w-6 flex">
+                        <span className="rounded-lg text-xs font-medium ring-1 ring-gray-200 justify-center items-center shrink-0 h-6 w-6 flex">
                           H
                         </span>
                         <span className="overflow-hidden text-ellipsis whitespace-nowrap">
@@ -131,9 +131,9 @@ export default function BrandSidebar() {
                     <li>
                       <a
                         href="#"
-                        className="rounded-md leading-6 text-sm font-medium p-2 text-white/80 flex gap-x-3 hover:bg-indigo-700 hover:text-white"
+                        className="rounded-md leading-6 text-sm font-medium p-2 text-gray-400/80 flex gap-x-3 hover:bg-gray-100 hover:text-gray-400"
                       >
-                        <span className="rounded-lg text-xs font-medium ring-1 ring-white/80 justify-center items-center shrink-0 h-6 w-6 flex">
+                        <span className="rounded-lg text-xs font-medium ring-1 ring-gray-200 justify-center items-center shrink-0 h-6 w-6 flex">
                           T
                         </span>
                         <span className="overflow-hidden text-ellipsis whitespace-nowrap">
@@ -144,9 +144,9 @@ export default function BrandSidebar() {
                     <li>
                       <a
                         href="#"
-                        className="rounded-md leading-6 text-sm font-medium p-2 text-white/80 flex gap-x-3 hover:bg-indigo-700 hover:text-white"
+                        className="rounded-md leading-6 text-sm font-medium p-2 text-gray-400/80 flex gap-x-3 hover:bg-gray-100 hover:text-gray-400"
                       >
-                        <span className="rounded-lg text-xs font-medium ring-1 ring-white/80 justify-center items-center shrink-0 h-6 w-6 flex">
+                        <span className="rounded-lg text-xs font-medium ring-1 ring-gray-200 justify-center items-center shrink-0 h-6 w-6 flex">
                           W
                         </span>
                         <span className="overflow-hidden text-ellipsis whitespace-nowrap">
@@ -156,16 +156,24 @@ export default function BrandSidebar() {
                     </li>
                   </ul>
                 </li>
-                <li className="mt-auto">
+                <li className="mt-auto -mx-6">
                   <a
                     href="#"
                     className={clsx(
-                      'text-white/80 hover:bg-indigo-700 hover:text-white',
-                      'flex gap-x-3 -mx-2 rounded-md p-2 text-sm leading-6 font-semibold'
+                      'hover:bg-gray-100',
+                      'flex gap-x-4 -mx-2 py-2 px-6 text-sm leading-6 font-semibold'
                     )}
                   >
-                    <Cog6ToothIcon className="w-6 shrink-0" />
-                    Settings
+                    <img
+                      className="h-8 w-8 rounded-full"
+                      src={user.imageUrl}
+                      alt=""
+                    />
+                    <span className="lg:flex lg:items-center hidden">
+                      <span className="leading-6 font-medium text-sm">
+                        {user.name}
+                      </span>
+                    </span>
                   </a>
                 </li>
               </ul>
@@ -175,7 +183,7 @@ export default function BrandSidebar() {
         {/* Content */}
         <div className="lg:pl-72 -mt-4">
           {/* Top header bar */}
-          <div className="flex items-center gap-x-4 h-16 z-40 sticky top-0 px-4 bg-white ring-b ring-gray-300 lg:px-8 md:px-6 md:gap-x-6 shadow">
+          <div className="lg:hidden flex items-center gap-x-4 h-16 z-40 sticky top-0 px-4 bg-white ring-b ring-gray-300 lg:px-8 md:px-6 md:gap-x-6 shadow">
             <button
               type="button"
               className="lg:hidden p-1 -m-1"
@@ -184,71 +192,8 @@ export default function BrandSidebar() {
               <Bars3Icon className="w-6 h-6" />
             </button>
             <div className="block lg:hidden bg-gray-200 w-px h-6"></div>
-            <div className="flex flex-1 gap-x-4 lg:gap-x-6 self-stretch">
-              <form action="#" className="relative flex flex-1">
-                <MagnifyingGlassIcon
-                  className="absolute left-0 top-0 text-gray-400 h-full w-5"
-                  aria-hidden="true"
-                />
-                <input
-                  type="search"
-                  placeholder="Search..."
-                  className="pr-0 pl-8 py-0 block h-full w-full text-sm leading-5 outline-0 border-0 focus:ring-0"
-                />
-              </form>
-              <div className="flex items-center gap-x-4 lg:gap-x-6">
-                <button
-                  type="button"
-                  className="p-1 -m-1 text-gray-400 hover:text-gray-700"
-                >
-                  <BellIcon className="w-6 h-6" />
-                </button>
-                <div className="lg:bg-gray-200 lg:w-px lg:h-6 lg:block hidden"></div>
-                <Menu as="div" className="relative">
-                  <Menu.Button className="relative flex max-w-xs items-center text-sm p-1.5 -mx-1.5">
-                    <span className="absolute -inset-1.5" />
-                    <span className="sr-only">Open user menu</span>
-                    <img
-                      className="h-8 w-8 rounded-full"
-                      src={user.imageUrl}
-                      alt=""
-                    />
-                    <span className="lg:flex lg:items-center hidden">
-                      <span className="leading-6 font-medium text-sm ml-4">
-                        {user.name}
-                      </span>
-                      <ChevronDownIcon className="w-5	h-5 ml-2 text-gray-400" />
-                    </span>
-                  </Menu.Button>
-                  <Transition
-                    as={Fragment}
-                    enter="transition ease-out duration-100"
-                    enterFrom="transform opacity-0 scale-95"
-                    enterTo="transform opacity-100 scale-100"
-                    leave="transition ease-in duration-75"
-                    leaveFrom="transform opacity-100 scale-100"
-                    leaveTo="transform opacity-0 scale-95"
-                  >
-                    <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-                      {userNavigation.map((item) => (
-                        <Menu.Item key={item.name}>
-                          {({ active }) => (
-                            <a
-                              href={item.href}
-                              className={clsx(
-                                active ? 'bg-gray-100' : '',
-                                'block px-4 py-2 text-sm text-gray-700'
-                              )}
-                            >
-                              {item.name}
-                            </a>
-                          )}
-                        </Menu.Item>
-                      ))}
-                    </Menu.Items>
-                  </Transition>
-                </Menu>
-              </div>
+            <div className="flex flex-1 items-center leading-6 font-semibold">
+              Dashboard
             </div>
           </div>
           {/* Main content */}
@@ -294,7 +239,7 @@ export default function BrandSidebar() {
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
           >
-            <div className="fixed inset-0 bg-black/70" />
+            <div className="fixed inset-0 bg-gray-900/70" />
           </Transition.Child>
 
           <div className="fixed inset-0 flex">
@@ -317,7 +262,7 @@ export default function BrandSidebar() {
                     <XMarkIcon className="w-6 h-6" />
                   </button>
                 </div>
-                <div className="flex flex-col overflow-y-auto gap-y-5 px-6 pt-4 grow bg-indigo-600">
+                <div className="flex flex-col overflow-y-auto gap-y-5 px-6 pt-4 grow bg-gray-900">
                   <div className="flex h-16 shrink-0 items-center">
                     <img
                       className="w-auto h-8"
@@ -335,8 +280,8 @@ export default function BrandSidebar() {
                                 href={item.href}
                                 className={clsx(
                                   item.current
-                                    ? 'bg-indigo-700 text-white'
-                                    : 'text-white/80 hover:bg-indigo-700 hover:text-white',
+                                    ? 'bg-gray-800 text-white'
+                                    : 'text-white/80 hover:bg-gray-800 hover:text-white',
                                   'flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold'
                                 )}
                                 aria-current={item.current ? 'page' : undefined}
@@ -356,7 +301,7 @@ export default function BrandSidebar() {
                           <li>
                             <a
                               href="#"
-                              className="rounded-md leading-6 text-sm font-medium p-2 text-white/80 flex gap-x-3 hover:bg-indigo-700 hover:text-white"
+                              className="rounded-md leading-6 text-sm font-medium p-2 text-white/80 flex gap-x-3 hover:bg-gray-800 hover:text-white"
                             >
                               <span className="rounded-lg text-xs font-medium ring-1 ring-white/80 justify-center items-center shrink-0 h-6 w-6 flex">
                                 H
@@ -369,7 +314,7 @@ export default function BrandSidebar() {
                           <li>
                             <a
                               href="#"
-                              className="rounded-md leading-6 text-sm font-medium p-2 text-white/80 flex gap-x-3 hover:bg-indigo-700 hover:text-white"
+                              className="rounded-md leading-6 text-sm font-medium p-2 text-white/80 flex gap-x-3 hover:bg-gray-800 hover:text-white"
                             >
                               <span className="rounded-lg text-xs font-medium ring-1 ring-white/80 justify-center items-center shrink-0 h-6 w-6 flex">
                                 T
@@ -382,7 +327,7 @@ export default function BrandSidebar() {
                           <li>
                             <a
                               href="#"
-                              className="rounded-md leading-6 text-sm font-medium p-2 text-white/80 flex gap-x-3 hover:bg-indigo-700 hover:text-white"
+                              className="rounded-md leading-6 text-sm font-medium p-2 text-white/80 flex gap-x-3 hover:bg-gray-800 hover:text-white"
                             >
                               <span className="rounded-lg text-xs font-medium ring-1 ring-white/80 justify-center items-center shrink-0 h-6 w-6 flex">
                                 W
@@ -398,7 +343,7 @@ export default function BrandSidebar() {
                         <a
                           href="#"
                           className={clsx(
-                            'text-white/80 hover:bg-indigo-700 hover:text-white',
+                            'text-white/80 hover:bg-gray-800 hover:text-white',
                             'flex gap-x-3 -mx-2 rounded-md p-2 text-sm leading-6 font-semibold'
                           )}
                         >
