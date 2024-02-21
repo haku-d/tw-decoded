@@ -8,6 +8,7 @@
   - [Sidebar Layouts](/docs/layouts/sidebar/)
   - [Multi-Column Layouts](/docs/layouts/multi-column/)
 - [Forms](#form)
+  - Input Groups
 - [Lists](#lists)
 - [Navigations](#navigations)
 
@@ -19,6 +20,7 @@
 
 ## Run dev site
 `npm install`
+
 `npx nx dev`
 
 ## Run storybook
