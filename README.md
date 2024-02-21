@@ -13,8 +13,8 @@
 - [Navigations](#navigations)
 
 ## TODOS
-- [ ] [WIP] Application Shells
-- [ ] Forms
+- [x] Application Shells
+- [x] Forms
 - [ ] Lists
 - [ ] Navigations
 
