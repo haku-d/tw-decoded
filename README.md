@@ -8,7 +8,7 @@
   - [Sidebar Layouts](/docs/layouts/sidebar/)
   - [Multi-Column Layouts](/docs/layouts/multi-column/)
 - [Forms](#form)
-  - Input Groups
+  - [Input Groups](https://tw-decoded.vercel.app/?path=/story/forms-input--inline-input-story)
 - [Lists](#lists)
 - [Navigations](#navigations)
 
