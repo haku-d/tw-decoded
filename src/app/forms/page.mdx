@@ -1,0 +1,228 @@
+import { Meta, Canvas } from '@storybook/blocks';
+import * as Stories from './page.stories';
+import { EnvelopeIcon, QuestionMarkCircleIcon } from '@heroicons/react/16/solid'
+
+import { Field, Input, Label, Description } from '@/components/ui';
+
+<Meta of={Stories} />
+
+# Input Groups
+
+<div className="space-y-8 mt-8 sb-unstyled">
+  <div className="border p-4">
+    <h2>Input with label</h2>
+    <div className="w-[300px] space-y-8 mt-2">
+      <Field>
+        <Label>Email</Label>
+        <Input className="mt-2 rounded-md" />
+      </Field>
+    </div>
+    <div>
+      ```jsx
+      <Field>
+        <Label>Email</Label>
+        <Input className="mt-2 rounded-md" />
+      </Field>
+      ```
+    </div>
+  </div>
+
+  <div className="border p-4 sb-unstyled">
+    <h2>Input with inline leading add-on and trailing dropdown</h2>
+    <div className="w-[300px] space-y-8 mt-2">
+      <Field>
+        <Label>Price</Label>
+        <Input
+          prefix="$"
+          suffix={
+            <select name="currency" className="focus:ring-0 rounded-md border-0 bg-transparent text-sm text-gray-500 pr-7">
+              <option>USD</option>
+              <option>CAD</option>
+              <option>EUR</option>
+            </select>
+          }
+          placeholder="0.00"
+          className="mt-2 rounded-md"
+        />
+      </Field>
+    </div>
+    <div>
+      ```jsx
+      <Field>
+        <Label>Price</Label>
+        <Input
+          prefix="$"
+          suffix={
+            <select name="currency" className="border-0 bg-transparent">
+              <option>USD</option>
+              <option>CAD</option>
+              <option>EUR</option>
+            </select>
+          }
+          placeholder="0.00"
+          className="mt-2 rounded-md"
+        />
+      </Field>
+      ```
+    </div>
+  </div>
+  <div className="border p-4 sb-unstyled">
+    <h2>Input with label and help text</h2>
+    <div className="w-[300px] space-y-8 mt-2">
+      <Field>
+        <Label>Email</Label>
+        <Input className="mt-2 rounded-md" />
+        <Description>Please enter your email address</Description>
+      </Field>
+    </div>
+    <div>
+      ```jsx
+      <Field>
+        <Label>Email</Label>
+        <Input className="mt-2 rounded-md" />
+        <Description>Please enter your email address</Description>
+      </Field>
+      ```
+    </div>
+  </div>
+
+  <div className="border p-4 sb-unstyled">
+    <h2>Input with validation error</h2>
+    <div className="w-[300px] space-y-8 mt-2">
+      <Field hasError>
+        <Label>Email</Label>
+        <Input className="mt-2 rounded-md" value="adamwathan" />
+        <Description>Not a valid email address.</Description>
+      </Field>
+    </div>
+    <div>
+      ```jsx
+      <Field hasError>
+        <Label>Email</Label>
+        <Input className="mt-2 rounded-md" value="adamwathan" />
+        <Description>Not a valid email address.</Description>
+      </Field>
+      ```
+    </div>
+  </div>
+
+  <div className="border p-4 sb-unstyled">
+    <h2>Input with disabled state</h2>
+    <div className="w-[300px] space-y-8 mt-2">
+      <Field>
+        <Label>Email</Label>
+        <Input disabled className="mt-2 rounded-md" value="adamwathan" />
+      </Field>
+    </div>
+    <div>
+      ```jsx
+      <Field hasError>
+        <Label>Email</Label>
+        <Input disabled className="mt-2 rounded-md" value="adamwathan" />
+      </Field>
+      ```
+    </div>
+  </div>
+
+  <div className="border p-4 sb-unstyled">
+    <h2>Input with leading icon</h2>
+    <div className="w-[300px] space-y-8 mt-2">
+      <Field>
+        <Label>Email</Label>
+        <Input className="mt-2 rounded-md" placeholder="you@example.com" prefix={<EnvelopeIcon className="w-5 h-5"/>}/>
+      </Field>
+    </div>
+    <div>
+      ```jsx
+      // import { EnvelopeIcon } from '@heroicons/react/16/solid'
+
+      <Field hasError>
+        <Label>Email</Label>
+        <Input className="mt-2 rounded-md" placeholder="you@example.com" prefix={<EnvelopeIcon className="w-5 h-5"/>}/>
+      </Field>
+      ```
+    </div>
+  </div>
+
+  <div className="border p-4 sb-unstyled">
+    <h2>Input with trailing icon</h2>
+    <div className="w-[300px] space-y-8 mt-2">
+      <Field>
+        <Label>Account number</Label>
+        <Input className="mt-2 rounded-md" placeholder="000-00-0000" suffix={<QuestionMarkCircleIcon className="mr-2 w-5 h-5 text-gray-500"/>}/>
+      </Field>
+    </div>
+    <div>
+      ```jsx
+      // import { QuestionMarkCircleIcon } from '@heroicons/react/16/solid'
+
+      <Field hasError>
+        <Label>Account number</Label>
+        <Input className="mt-2 rounded-md" placeholder="you@example.com" suffix={<QuestionMarkCircleIcon className="mr-2 w-5 h-5 text-gray-500"/>}/>
+      </Field>
+      ```
+    </div>
+  </div>
+
+  <div className="border p-4 sb-unstyled">
+    <h2>Inputs with shared borders</h2>
+    <div className="w-[300px] space-y-8 mt-2">
+      <div className="field-set">
+        <Label>Card Details</Label>
+        <div className="field-group mt-2 -space-y-px space-y-reverse-0">
+          <Field>
+            <Input
+              placeholder="Card number"
+              shadow={false}
+              className="rounded-none rounded-tl-md rounded-tr-md border-0"
+            />
+          </Field>
+          <div className="flex -space-x-px space-x-reverse-0">
+            <Field className="w-1/2 flex-1 min-w-0">
+              <Input
+                placeholder="MM/YY"
+                className="rounded-none rounded-bl-md border-0"
+              />
+            </Field>
+            <Field className="flex-1 min-w-0">
+              <Input
+                placeholder="CVC"
+                className="rounded-none rounded-br-md border-0"
+              />
+            </Field>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      ```jsx
+      <div className="field-set">
+        <Label>Card Details</Label>
+        <div className="field-group mt-2 -space-y-px space-y-reverse-0">
+          <Field>
+            <Input
+              placeholder="Card number"
+              shadow={false}
+              className="rounded-none rounded-tl-md rounded-tr-md border-0"
+            />
+          </Field>
+          <div className="flex -space-x-px space-x-reverse-0">
+            <Field className="w-1/2 flex-1 min-w-0">
+              <Input
+                placeholder="MM/YY"
+                className="rounded-none rounded-bl-md border-0"
+              />
+            </Field>
+            <Field className="flex-1 min-w-0">
+              <Input
+                placeholder="CVC"
+                className="rounded-none rounded-br-md border-0"
+              />
+            </Field>
+          </div>
+        </div>
+      </div>
+      ```
+    </div>
+  </div>
+</div>

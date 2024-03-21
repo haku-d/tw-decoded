@@ -3,8 +3,8 @@ import type { Meta, StoryObj } from '@storybook/react';
 import Input from '.';
 
 const meta: Meta<typeof Input> = {
-  title: 'Forms/Input',
-  id: 'forms/input',
+  title: 'Components/Input',
+  id: 'Components/input',
   component: Input,
   parameters: {
     layout: 'centered',
@@ -23,9 +23,11 @@ type Story = StoryObj<typeof Input>;
 
 export const InlineInputStory: Story = {
   args: {
+    type: 'email',
     rounded: true,
     placeholder: 'your@example.com',
     disabled: false,
+    required: false,
   },
 };
 

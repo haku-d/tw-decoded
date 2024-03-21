@@ -1,21 +1,12 @@
-import React, { forwardRef, useMemo, useState } from 'react';
+import React, { ReactElement, forwardRef, useMemo, useState } from 'react';
 import clsx from 'clsx';
 
 import { InputBaseCls } from '../base';
+import { InputProps } from '../interface';
 
-export interface InputProps {
-  name: string;
-  type: string;
-  disabled: boolean;
-  rounded: boolean;
-  placeholder: string;
-  prefix: React.ReactNode | undefined;
-  suffix: React.ReactNode | undefined;
-}
+type InputRef = HTMLInputElement;
 
-export type InputRef = HTMLInputElement;
-
-const Input = forwardRef<InputRef, InputProps>(function Input(
+const Input = forwardRef<InputRef, Partial<InputProps>>(function Input(
   props,
   ref
 ): React.ReactNode {
@@ -23,23 +14,35 @@ const Input = forwardRef<InputRef, InputProps>(function Input(
     type = 'text',
     name,
     disabled = false,
-    rounded = true,
+    required = false,
+    hasError = false,
+    shadow = true,
+    className = '',
     prefix,
     suffix,
     ...rest
   } = props;
+  const [focused, setFocused] = useState(false);
+  const inputWrapperCls = clsx([
+    'relative',
+    'flex',
+    shadow && 'shadow-sm',
+    'ring-1',
+    'ring-inset',
+    'ring-gray-200',
+    'focus-within:ring-blue-500',
+    className,
+    focused && 'z-10',
+    disabled && 'ring-0 bg-gray-50 cursor-not-allowed',
+    hasError && 'ring-red-500 focus-within:ring-red-500',
+  ]);
   const inputCls = clsx([
     InputBaseCls,
-    rounded && 'rounded-md',
+    'peer',
+    hasError && 'text-red-500',
     disabled &&
       'cursor-not-allowed disabled:bg-gray-50 disabled:text-gray-500 disabled:border-gray-200 disabled:shadow-none',
   ]);
-  const [focused, setFocused] = useState(false);
-
-  const toggleFocus = () => {
-    setFocused(!focused);
-  };
-
   const hasPrefix = useMemo(() => {
     if (prefix && prefix !== '') return true;
     return false;
@@ -52,29 +55,21 @@ const Input = forwardRef<InputRef, InputProps>(function Input(
 
   const _suffix = useMemo(() => {
     if (!hasSuffix) return;
-    return React.cloneElement(suffix as React.ReactElement<any>, {
-      className: clsx([
-        'h-full rounded-md border-0 bg-transparent py-0 pl-2 pr-7 text-gray-500 focus:ring-1 focus:ring-inset focus:ring-blue-500 sm:text-sm',
-        disabled && 'cursor-not-allowed',
-      ]),
-      disabled: disabled,
-    });
+    return suffix;
+    // if (typeof suffix !== 'object') return suffix;
+    // const inputProps = (suffix as ReactElement).props;
+    // return React.cloneElement(suffix as React.ReactElement<any>, {
+    //   className: clsx([
+    //     'h-full rounded-md border-0 bg-transparent py-0 pl-2 pr-7 text-gray-500 focus:ring-1 focus:ring-inset focus:ring-blue-500 sm:text-sm',
+    //     disabled && 'cursor-not-allowed',
+    //     inputProps.className,
+    //   ]),
+    //   disabled: disabled,
+    // });
   }, [hasSuffix, suffix, disabled]);
 
   return (
-    <div
-      className={clsx([
-        'relative',
-        'flex',
-        'mt-2',
-        'shadow-sm',
-        'ring-1',
-        'ring-inset',
-        rounded && 'rounded-md',
-        focused ? 'ring-blue-500' : 'ring-gray-200',
-        disabled && 'ring-0 bg-gray-50 cursor-not-allowed',
-      ])}
-    >
+    <div className={inputWrapperCls}>
       {hasPrefix && (
         <div className="pointer-events-none flex items-center inset-y-0 flex-none pl-3">
           <span className="text-gray-500 sm:text-sm">{prefix}</span>
@@ -86,8 +81,9 @@ const Input = forwardRef<InputRef, InputProps>(function Input(
         name={name}
         disabled={disabled}
         className={inputCls}
-        onFocus={toggleFocus}
-        onBlur={toggleFocus}
+        required={required}
+        onFocus={() => setFocused(true)}
+        onBlur={() => setFocused(false)}
         {...rest}
       />
       {hasSuffix && (
@@ -95,8 +91,28 @@ const Input = forwardRef<InputRef, InputProps>(function Input(
           {_suffix}
         </div>
       )}
+      {hasError && (
+        <div className="absolute text-red-500 -right-6 top-0 bottom-0 flex-none inset-y-0 flex items-center">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth="1.5"
+            stroke="currentColor"
+            className="w-5 h-5"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M12 9v3.75m9-.75a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 3.75h.008v.008H12v-.008Z"
+            />
+          </svg>
+        </div>
+      )}
     </div>
   );
 });
+
+Input.displayName = 'Input';
 
 export default Input;
